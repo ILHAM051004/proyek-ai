@@ -41,18 +41,18 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E6FAF4] to-[#DDFBFF] flex items-center justify-center px-4 py-12 font-sans text-lg">
-      <div className="w-full max-w-xl bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border-t-8 border-[#106EBE] transform transition-all duration-300 hover:scale-[1.01]">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#106EBE] flex flex-col sm:flex-row items-center justify-center gap-3">
-            <span className="text-5xl">🍜</span> Prediksi Kuliner Puswil
+    <div className="min-h-screen bg-gradient-to-br from-[#E6FAF4] to-[#DDFBFF] flex items-center justify-center px-3 py-6 font-sans text-sm">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-5 sm:p-6 border-t-4 border-[#106EBE] transition-transform hover:scale-[1.01]">
+        <div className="text-center mb-6">
+          <h1 className="text-2xl font-extrabold text-[#106EBE] flex items-center justify-center gap-2">
+            <span className="text-3xl">🍜</span> Prediksi Kuliner
           </h1>
-          <p className="text-gray-500 mt-3 text-xl leading-relaxed">
-            Cek potensi keramaian tempat kuliner berdasarkan <br className="hidden sm:inline"/> hari, waktu, dan kondisi cuaca.
+          <p className="text-gray-500 mt-1 leading-normal text-sm">
+            Cek potensi keramaian tempat kuliner <br className="hidden sm:inline" /> berdasarkan hari, waktu, dan cuaca.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {[
             [
               "Hari",
@@ -63,16 +63,13 @@ function App() {
             ["Waktu", waktu, setWaktu, ["Pagi", "Siang", "Sore", "Malam"]],
             ["Cuaca", cuaca, setCuaca, ["Cerah", "Mendung", "Hujan"]],
           ].map(([label, value, setter, options], idx) => (
-            <div key={idx} className="relative group">
-              <label className="block font-semibold text-gray-700 mb-2 transform transition-transform duration-300 group-focus-within:translate-x-1">
-                {label}:
-              </label>
+            <div key={idx}>
+              <label className="block font-semibold text-gray-700 mb-1">{label}:</label>
               <select
                 value={value}
                 onChange={(e) => setter(e.target.value)}
                 required
-                className="w-full p-4 rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-4 focus:ring-[#E6FAF4] focus:border-[#106EBE] text-lg appearance-none bg-white pr-10 shadow-sm transition-all duration-300 hover:border-gray-400"
-                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.5em' }}
+                className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#E6FAF4] focus:border-[#106EBE] text-sm appearance-none bg-white pr-8 shadow-sm"
               >
                 <option value="" disabled hidden>
                   Pilih {label}
@@ -88,43 +85,34 @@ function App() {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#106EBE] to-[#0FFCBE] hover:from-[#0FFCBE] hover:to-[#106EBE] text-white font-bold py-4 px-6 rounded-xl text-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-[#E6FAF4] flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-[#106EBE] to-[#0FFCBE] hover:from-[#0FFCBE] hover:to-[#106EBE] text-white font-semibold py-2 px-3 rounded-lg text-sm shadow hover:shadow-md transition-transform hover:-translate-y-0.5"
           >
-            <span className="text-2xl">✨</span> Dapatkan Prediksi
+            ✨ Dapatkan Prediksi
           </button>
         </form>
 
         {label && (
-          <div className="mt-10 p-6 rounded-3xl bg-[#F0FDFA] border-l-8 border-[#0FFCBE] shadow-lg animate-fadeIn text-lg flex items-start gap-5">
-            <div className="text-5xl flex-shrink-0">
+          <div className="mt-6 p-4 rounded-2xl bg-[#F0FDFA] border-l-4 border-[#0FFCBE] shadow text-sm flex items-start gap-3">
+            <div className="text-2xl flex-shrink-0">
               {label === "Ramai" && "🥳"}
               {label === "Cukup ramai" && "😊"}
               {label === "Sepi" && "😴"}
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-base font-bold text-gray-800 mb-1">
                 Hasil Prediksi:
               </h2>
-              <p className="mb-1">
-                <strong>Hari:</strong>{" "}
-                <span className="text-[#106EBE] font-medium">{hari}</span>
-              </p>
-              <p className="mb-1">
-                <strong>Waktu:</strong>{" "}
-                <span className="text-[#106EBE] font-medium">{waktu}</span>
-              </p>
-              <p className="mb-1">
-                <strong>Cuaca:</strong>{" "}
-                <span className="text-[#106EBE] font-medium">{cuaca}</span>
-              </p>
-              <p className="mt-3 text-xl">
+              <p><strong>Hari:</strong> <span className="text-[#106EBE] font-medium">{hari}</span></p>
+              <p><strong>Waktu:</strong> <span className="text-[#106EBE] font-medium">{waktu}</span></p>
+              <p><strong>Cuaca:</strong> <span className="text-[#106EBE] font-medium">{cuaca}</span></p>
+              <p className="mt-2">
                 <strong>Tingkat Keramaian:</strong>{" "}
                 <span
-                  className={`font-extrabold ${
+                  className={`font-bold ${
                     label === "Ramai"
                       ? "text-green-600"
                       : label === "Cukup ramai"
-                      ? "text-yellow-600"  
+                      ? "text-yellow-600"
                       : "text-red-600"
                   }`}
                 >
