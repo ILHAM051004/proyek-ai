@@ -64,10 +64,10 @@ function App() {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-5 sm:p-6 border-t-4 border-[#106EBE] transition-all duration-500 animate-fade-in">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-extrabold text-[#106EBE] flex items-center justify-center gap-2">
-            <span className="text-3xl">🍜</span> Prediksi Kuliner Puswil
+            <span className="text-3xl">🍜</span> RameIn
           </h1>
           <p className="text-gray-500 mt-1 leading-normal text-sm">
-            Cek potensi keramaian puswil <br className="hidden sm:inline" />{" "}
+            Cek potensi keramaian kuliner puswil <br className="hidden sm:inline" />{" "}
             berdasarkan hari, waktu, dan cuaca.
           </p>
         </div>
