@@ -14,7 +14,7 @@ export const prediksiAPI = {
         const response = await axios.get(API_URL, { headers })
         return response.data
     },
-
+ 
     async createPrediksi(data) {
         const response = await axios.post(API_URL, data, { headers })
         return response.data
