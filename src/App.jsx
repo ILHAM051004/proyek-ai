@@ -124,7 +124,7 @@ function App() {
                     label === "Ramai"
                       ? "text-green-600"
                       : label === "Cukup ramai"
-                      ? "text-yellow-600" 
+                      ? "text-yellow-600"  
                       : "text-red-600"
                   }`}
                 >
